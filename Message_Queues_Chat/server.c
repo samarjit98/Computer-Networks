@@ -13,14 +13,12 @@ int curr = 0;
 
 static void sig_func(int signo)
 {
-	struct mymesg* buff;
-	void* tmp;
-	msgrcv(msqid, tmp, sizeof(struct mymesg), 1, 0);
-	buff = (struct mymesg*)tmp;
+	struct mymesg buff;
+	msgrcv(msqid, &buff, sizeof(struct mymesg), 1, 0);
 
-	printf("%s", buff->mtext);
+	printf("%s\n", buff.mtext);
 
-	int currproc = buff->processno;
+	int currproc = buff.processno;
 	int flag = 0;
 	for(int i=0; i<curr; i++)
 	{
@@ -30,8 +28,8 @@ static void sig_func(int signo)
 		}
 		else
 		{
-			buff->mtype = processno[i];
-			msgsnd(msqid, (void*)buff, sizeof(buff), 0);
+			buff.mtype = (long)processno[i];
+			msgsnd(msqid, &buff, sizeof(struct mymesg), 0);
 			kill(processno[i], SIGUSR1);
 		}
 	}
@@ -48,7 +46,7 @@ int main(int argc, char* argv[])
 	printf("%d\n", getpid());
 	signal(SIGUSR1, sig_func);
 
-	msqid = msgget(1234, 0666 | IPC_CREAT);
+	msqid = msgget(1356, 0666 | IPC_CREAT);
 
 	while(1);
 
