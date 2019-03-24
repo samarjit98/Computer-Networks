@@ -46,7 +46,11 @@ int main(int argc, char* argv[])
 	printf("%d\n", getpid());
 	signal(SIGUSR1, sig_func);
 
-	msqid = msgget(1356, 0666 | IPC_CREAT);
+	msqid = msgget(1357, 0666 | IPC_CREAT);
+
+	int shmid = shmget(1279, sizeof(int), 0666|IPC_CREAT);
+	int *servid = (int*)shmat(shmid, 0, 0);
+	*servid = getpid();
 
 	while(1);
 

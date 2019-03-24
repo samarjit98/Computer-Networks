@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <sys/msg.h>
+#include <sys/shm.h>
 
 #define MAXLINE 4096
 #define BUFFSIZE 8192

@@ -19,7 +19,10 @@ int main(int argc, char* argv[])
 {
 	signal(SIGUSR1, sig_func);
 
-	msqid = msgget(1356, 0666 | IPC_CREAT);
+	msqid = msgget(1357, 0666 | IPC_CREAT);
+
+	int shmid = shmget(1279, sizeof(int), 0666|IPC_CREAT);
+	int *servid = (int*)shmat(shmid, 0, 0);
 
 	while(1)
 	{
@@ -32,7 +35,7 @@ int main(int argc, char* argv[])
 		strcpy(sendthis.mtext, buff);
 	
 		msgsnd(msqid, &sendthis, sizeof(struct mymesg), 0);	
-		kill(atoi(argv[1]), SIGUSR1);
+		kill(*servid, SIGUSR1);
 	}
 }
 
