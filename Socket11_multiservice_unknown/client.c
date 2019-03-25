@@ -91,10 +91,6 @@ Client output:
 
 ➜  Socket11_multiservice_unknown git:(master) ✗ ./client
 1
-Here
-Service1
-➜  Socket11_multiservice_unknown git:(master) ✗ ./client
-1
 Service1
 ➜  Socket11_multiservice_unknown git:(master) ✗ ./client
 2
