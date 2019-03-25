@@ -3,7 +3,7 @@
 int main()
 {
 	int sfd;
-	struct sockaddr_in servip;
+	struct sockaddr_in servip, clip;
 
 	sfd = socket(AF_INET, SOCK_DGRAM, 0);
 
@@ -23,9 +23,10 @@ int main()
 		struct sockaddr_in clip1;
 		struct sockaddr* clip2;
 		
-		n = recvfrom(sfd, mesg, MAXLINE, 0, clip2, &len);
+		len = sizeof(clip);
+		n = recvfrom(sfd, mesg, MAXLINE, 0, (struct sockaddr*)&clip, &len);
 		printf("%d\n", (int)len);
-		n = sendto(sfd, mesg, n, 0, clip2, len);
+		n = sendto(sfd, mesg, n, 0, (struct sockaddr*)&clip, len);
 		printf("%d\n", n);	
 	}	
 }

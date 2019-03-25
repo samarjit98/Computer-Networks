@@ -5,23 +5,26 @@ int main()
 	int cfd;
 	struct sockaddr_in clip;
 
-	cfd = socket(AF_INET, SOCK_DGRAM, 0);
+	if((cfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0)
+	{
+		perror("Sock error!"); exit(0);
+	}
 
 	bzero(&clip, sizeof(clip));
 	clip.sin_family = AF_INET;
-	clip.sin_addr.s_addr = inet_addr("127.0.0.1");
+	clip.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
 	clip.sin_port = htons(5001);
 
-	bind(cfd, (struct sockaddr*)&clip, sizeof(clip));
+	if(bind(cfd, (struct sockaddr*)&clip, sizeof(clip)) < 0)
+	{
+		perror("Bind error!"); exit(0);
+	}
 
-	//int sfd;
 	struct sockaddr_in servip;
-
-	//sfd = socket(AF_INET, SOCK_DGRAM, 0);
 
 	bzero(&servip, sizeof(servip));
 	servip.sin_family = AF_INET;
-	servip.sin_addr.s_addr = inet_addr("127.0.0.1");
+	servip.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
 	servip.sin_port = htons(5000);
 
 	if(fork()==0)
@@ -34,7 +37,7 @@ int main()
 
 			struct sockaddr* servip2;
 			len = sizeof(servip);
-			n = recvfrom(cfd, mesg, MAXLINE, 0, servip2, &len);
+			n = recvfrom(cfd, mesg, MAXLINE, 0, (struct sockaddr*)&servip, &len);
 
 			printf("%s\n", mesg);
 		}	
