@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 				printf("%d\n", peerport);
 
 				peerip.sin_family = AF_INET;
-				peerip.sin_addr.s_addr = INADDR_LOOPBACK;
+				peerip.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
 				peerip.sin_port = htons(peerport);
 
 				int cfd;
@@ -53,8 +53,6 @@ int main(int argc, char* argv[])
 				}
 
 				char buff[10] = "Service1";
-
-				printf("Here\n");
 				write(cfd, buff, strlen(buff)+1);
 
 				close(cfd);
