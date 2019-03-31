@@ -31,6 +31,11 @@ int main(int argc, char* argv[]){
 	if((lfd = socket(AF_INET, SOCK_STREAM, 0))<0){
 		perror("Socket error!"); exit(0);
 	}
+	int reuse = 1;
+	if(setsockopt(lfd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(int)) < 0)
+	{
+		perror("Sockopt error!"); exit(0);
+	}
 
 	bzero(&servip, sizeof(servip));
 	servip.sin_family = AF_INET;
@@ -83,6 +88,7 @@ void sig_startup(int sigint){
 	}
 
 	kill(buff.processno, SIGUSR2);
+	sleep(5);
 
 	int usfd;
 	struct sockaddr_un userv_addr;
