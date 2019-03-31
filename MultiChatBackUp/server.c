@@ -15,99 +15,12 @@ struct mymesg{
 
 void* process(void* argt);
 static void sig_backup(int sigint);
-
-int recv_fd(int socket)
-{
-  int sent_fd, available_ancillary_element_buffer_space;
-  struct msghdr socket_message;
-  struct iovec io_vector[1];
-  struct cmsghdr *control_message = NULL;
-  char message_buffer[1];
-  char ancillary_element_buffer[CMSG_SPACE(sizeof(int))];
-
-  /* start clean */
-  memset(&socket_message, 0, sizeof(struct msghdr));
-  memset(ancillary_element_buffer, 0, CMSG_SPACE(sizeof(int)));
-
-  /* setup a place to fill in message contents */
-  io_vector[0].iov_base = message_buffer;
-  io_vector[0].iov_len = 1;
-  socket_message.msg_iov = io_vector;
-  socket_message.msg_iovlen = 1;
-
-  /* provide space for the ancillary data */
-  socket_message.msg_control = ancillary_element_buffer;
-  socket_message.msg_controllen = CMSG_SPACE(sizeof(int));
-
-  if(recvmsg(socket, &socket_message, MSG_CMSG_CLOEXEC) < 0)
-   return -1;
-
-  if(message_buffer[0] != 'F')
-  {
-   /* this did not originate from the above function */
-   return -1;
-  }
-
-  if((socket_message.msg_flags & MSG_CTRUNC) == MSG_CTRUNC)
-  {
-   /* we did not provide enough space for the ancillary element array */
-   return -1;
-  }
-
-  /* iterate ancillary elements */
-   for(control_message = CMSG_FIRSTHDR(&socket_message);
-       control_message != NULL;
-       control_message = CMSG_NXTHDR(&socket_message, control_message))
-  {
-   if( (control_message->cmsg_level == SOL_SOCKET) &&
-       (control_message->cmsg_type == SCM_RIGHTS) )
-   {
-    sent_fd = *((int *) CMSG_DATA(control_message));
-    return sent_fd;
-   }
-  }
-
-  return -1;
-}
-
-static void sig_startup(int sigint){
-	struct mymesg buff;
-	msgrcv(msqid, &buff, sizeof(struct mymesg), portno, 0);
-	kill(buff.processno, SIGUSR2);
-
-	msqid = msgget(1357, 0666 | IPC_CREAT);
-
-	int usfd;
-	struct sockaddr_un userv_addr;
-  	int userv_len,ucli_len;
-
-  	if((usfd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0){
-  		perror("Unix socket error!"); exit(0);
-  	}
-
-  	bzero(&userv_addr,sizeof(userv_addr));
-  	userv_addr.sun_family = AF_UNIX;
-   	strcpy(userv_addr.sun_path, portstring);
-
-	userv_len = sizeof(userv_addr);
-
-	if(connect(usfd,(struct sockaddr *)&userv_addr,userv_len)==-1){
-		perror("Connect error!"); exit(0);
-	}
-
-	read(usfd, &curr; sizeof(int));
-
-	for(int i=0; i<curr; i++){
-		clients[i] = recv_fd(usfd);
-	}
-
-	close(usfd);
-}
+//static void sig_startup(int sigint);
 
 int main(int argc, char* argv[]){
 	signal(SIGINT, sig_backup);
-	signal(SIGUSR1, sig_startup);
-	kill(getpid(), SIGUSR1);
+	//signal(SIGUSR1, sig_startup);
+	//kill(getpid(), SIGUSR1);
 
 	portno = atoi(argv[1]);
 
@@ -159,42 +72,41 @@ void* process(void* argt){
 		}
 	}
 }
+/*
+static void sig_startup(int sigint){
+	struct mymesg buff;
+	msgrcv(msqid, &buff, sizeof(struct mymesg), portno, 0);
+	kill(buff.processno, SIGUSR2);
 
-int send_fd(int socket, int fd_to_send){
-  struct msghdr socket_message;
-  struct iovec io_vector[1];
-  struct cmsghdr *control_message = NULL;
-  char message_buffer[1];
-  /* storage space needed for an ancillary element with a paylod of length is CMSG_SPACE(sizeof(length)) */
-  char ancillary_element_buffer[CMSG_SPACE(sizeof(int))];
-  int available_ancillary_element_buffer_space;
+	msqid = msgget(1357, 0666 | IPC_CREAT);
 
-  /* at least one vector of one byte must be sent */
-  message_buffer[0] = 'F';
-  io_vector[0].iov_base = message_buffer;
-  io_vector[0].iov_len = 1;
+	int usfd;
+	struct sockaddr_un userv_addr;
+  	int userv_len,ucli_len;
 
-  /* initialize socket message */
-  memset(&socket_message, 0, sizeof(struct msghdr));
-  socket_message.msg_iov = io_vector;
-  socket_message.msg_iovlen = 1;
+  	if((usfd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0){
+  		perror("Unix socket error!"); exit(0);
+  	}
 
-  /* provide space for the ancillary data */
-  available_ancillary_element_buffer_space = CMSG_SPACE(sizeof(int));
-  memset(ancillary_element_buffer, 0, available_ancillary_element_buffer_space);
-  socket_message.msg_control = ancillary_element_buffer;
-  socket_message.msg_controllen = available_ancillary_element_buffer_space;
+  	bzero(&userv_addr,sizeof(userv_addr));
+  	userv_addr.sun_family = AF_UNIX;
+   	strcpy(userv_addr.sun_path, portstring);
 
-  /* initialize a single ancillary data element for fd passing */
-  control_message = CMSG_FIRSTHDR(&socket_message);
-  control_message->cmsg_level = SOL_SOCKET;
-  control_message->cmsg_type = SCM_RIGHTS;
-  control_message->cmsg_len = CMSG_LEN(sizeof(int));
-  *((int *) CMSG_DATA(control_message)) = fd_to_send;
+	userv_len = sizeof(userv_addr);
 
-  return sendmsg(socket, &socket_message, 0);
+	if(connect(usfd,(struct sockaddr *)&userv_addr,userv_len)==-1){
+		perror("Connect error!"); exit(0);
+	}
+
+	read(usfd, &curr; sizeof(int));
+
+	for(int i=0; i<curr; i++){
+		clients[i] = recv_fd(usfd);
+	}
+
+	close(usfd);
 }
-
+*/
 static void sig_backup(int sigint){
 	int usfd;
 	struct sockaddr_un userv_addr;
@@ -227,4 +139,5 @@ static void sig_backup(int sigint){
 	exiting = 1;
 
 	close(usfd);
+	exit(0);
 }

@@ -22,4 +22,7 @@
 #define LISTENQ 1024
 #define SERV_PORT 9877
 
+int recv_fd(int socket);
+int send_fd(int socket, int fd_to_send);
+
 #endif
