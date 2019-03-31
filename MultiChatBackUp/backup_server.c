@@ -62,6 +62,9 @@ int main(int argc, char** argv){
 				for(int i=0; i<curr; i++){
 					pthread_create(&tid[i], NULL, process, (void*)&clients[i]);
 				}
+				for(int i=0; i<curr; i++){
+					pthread_join(tid[i], NULL);
+				}
 			}
 			else{
 				close(cfd);
