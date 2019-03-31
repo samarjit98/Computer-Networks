@@ -1,5 +1,6 @@
 #include "networks.h"
 #define ADDRESS "./unixsock"
+#define STARTUP "./startup"
 
 int clients[100];
 int curr = 0;
@@ -13,8 +14,8 @@ struct mymesg{
 };
 
 void* process(void* argt);
-static void sig_backup(int sigint);
-static void sig_startup(int sigint);
+void sig_backup(int sigint);
+void sig_startup(int sigint);
 
 int main(int argc, char* argv[]){
 	signal(SIGINT, sig_backup);
@@ -73,7 +74,7 @@ void* process(void* argt){
 	}
 }
 
-static void sig_startup(int sigint){
+void sig_startup(int sigint){
 	struct mymesg buff;
 	int msqid = msgget(1777, 0666 | IPC_CREAT);
 
@@ -93,7 +94,7 @@ static void sig_startup(int sigint){
 
   	bzero(&userv_addr,sizeof(userv_addr));
   	userv_addr.sun_family = AF_UNIX;
-   	strcpy(userv_addr.sun_path, portstring);
+   	strcpy(userv_addr.sun_path, STARTUP);
 
 	userv_len = sizeof(userv_addr);
 
@@ -112,7 +113,7 @@ static void sig_startup(int sigint){
 	close(usfd);
 }
 
-static void sig_backup(int sigint){
+void sig_backup(int sigint){
 	int usfd;
 	struct sockaddr_un userv_addr;
   	int userv_len,ucli_len;

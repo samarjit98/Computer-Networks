@@ -1,13 +1,13 @@
 #include "networks.h"
 #define ADDRESS "./unixsock"
-#define ADDSTART "./unixstart"
+#define STARTUP "./startup"
 
 int clients[100];
 int curr_cli;
 char portstring[10];
 
 void* process(void* argt);
-static void sig_clean(int sigint);
+void sig_clean(int sigint);
 
 struct mymesg{
 	long mtype;
@@ -86,40 +86,43 @@ void* process(void* argt){
 	}
 }
 
-static void sig_clean(int sigint){
-	unlink(portstring);
+void sig_clean(int sigint){
+	unlink(STARTUP);
 	int lfd, cfd;
 	struct sockaddr_un servip;
 	
-	printf("Here");
+	printf("Here\n");
 
 	if((lfd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0){
 		perror("Unix socket error!"); exit(0);
 	}
 	bzero(&servip,sizeof(servip));
   	servip.sun_family = AF_UNIX;
-   	strcpy(servip.sun_path, portstring);
+   	strcpy(servip.sun_path, STARTUP);
 
 	if(bind(lfd, (struct sockaddr*)&servip, sizeof(servip)) < 0){
 		perror("Unix bind error!"); exit(0);
 	}
 	listen(lfd, LISTENQ);
 
-	cfd = accept(lfd, NULL, NULL);
+	while(1){
+		cfd = accept(lfd, NULL, NULL);
 
-	if(cfd > 0){
-		for(int i=0; i<curr_cli; i++){
-			char buff[20] = "Server is up again";
-			write(clients[i], buff, 20);
+		if(cfd > 0){
+			for(int i=0; i<curr_cli; i++){
+				char buff[20] = "Server is up again";
+				write(clients[i], buff, 20);
+			}
+
+			write(cfd, &curr_cli, sizeof(int));
+
+			for(int i=0; i<curr_cli; i++){
+				send_fd(cfd, clients[i]);
+			}
+
+			close(cfd);
+			break;
 		}
-
-		write(cfd, &curr_cli, sizeof(int));
-
-		for(int i=0; i<curr_cli; i++){
-			send_fd(cfd, clients[i]);
-		}
-
-		close(cfd);
 	}
 
 	exit(0);
