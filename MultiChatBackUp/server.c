@@ -5,8 +5,7 @@ int clients[100];
 int curr = 0;
 int exiting = 0;
 int portno;
-char* portstring;
-int msqid;
+char portstring[10];
 
 struct mymesg{
 	long mtype;
@@ -15,14 +14,15 @@ struct mymesg{
 
 void* process(void* argt);
 static void sig_backup(int sigint);
-//static void sig_startup(int sigint);
+static void sig_startup(int sigint);
 
 int main(int argc, char* argv[]){
 	signal(SIGINT, sig_backup);
-	//signal(SIGUSR1, sig_startup);
-	//kill(getpid(), SIGUSR1);
+	signal(SIGUSR1, sig_startup);
+	kill(getpid(), SIGUSR1);
 
 	portno = atoi(argv[1]);
+	strcpy(portstring, argv[1]);
 
 	int lfd, cfd;
 	struct sockaddr_in servip;
@@ -72,17 +72,20 @@ void* process(void* argt){
 		}
 	}
 }
-/*
+
 static void sig_startup(int sigint){
 	struct mymesg buff;
-	msgrcv(msqid, &buff, sizeof(struct mymesg), portno, 0);
-	kill(buff.processno, SIGUSR2);
+	int msqid = msgget(1777, 0666 | IPC_CREAT);
 
-	msqid = msgget(1357, 0666 | IPC_CREAT);
+	if(msgrcv(msqid, &buff, sizeof(struct mymesg), (long)portno, IPC_NOWAIT) <= 0){
+		return;
+	}
+
+	kill(buff.processno, SIGUSR2);
 
 	int usfd;
 	struct sockaddr_un userv_addr;
-  	int userv_len,ucli_len;
+  	int userv_len, ucli_len;
 
   	if((usfd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0){
   		perror("Unix socket error!"); exit(0);
@@ -95,18 +98,20 @@ static void sig_startup(int sigint){
 	userv_len = sizeof(userv_addr);
 
 	if(connect(usfd,(struct sockaddr *)&userv_addr,userv_len)==-1){
-		perror("Connect error!"); exit(0);
+		perror("Unix connect error!"); exit(0);
 	}
 
-	read(usfd, &curr; sizeof(int));
+	read(usfd, &curr, sizeof(int));
 
 	for(int i=0; i<curr; i++){
 		clients[i] = recv_fd(usfd);
+		pthread_t tid;
+		pthread_create(&tid, NULL, process, (void*)&clients[i]);
 	}
 
 	close(usfd);
 }
-*/
+
 static void sig_backup(int sigint){
 	int usfd;
 	struct sockaddr_un userv_addr;
@@ -123,7 +128,7 @@ static void sig_backup(int sigint){
 	userv_len = sizeof(userv_addr);
 
 	if(connect(usfd,(struct sockaddr *)&userv_addr,userv_len)==-1){
-		perror("Connect error!"); exit(0);
+		perror("Unix connect error!"); exit(0);
 	}
 
 	for(int i=0; i<curr; i++){
@@ -131,12 +136,12 @@ static void sig_backup(int sigint){
 		write(clients[i], buff, 20);
 	}
 
+	write(usfd, portstring, 10);
 	write(usfd, &curr, sizeof(int));
 
 	for(int i=0; i<curr; i++){
 		send_fd(usfd, clients[i]);
 	}
-	exiting = 1;
 
 	close(usfd);
 	exit(0);
