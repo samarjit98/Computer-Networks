@@ -32,8 +32,7 @@ int main(int argc, char* argv[]){
 		perror("Socket error!"); exit(0);
 	}
 	int reuse = 1;
-	if(setsockopt(lfd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(int)) < 0)
-	{
+	if(setsockopt(lfd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(int)) < 0){
 		perror("Sockopt error!"); exit(0);
 	}
 
