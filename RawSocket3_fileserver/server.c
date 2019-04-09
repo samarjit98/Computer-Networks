@@ -43,7 +43,7 @@ int main(int argc, char* argv[]){
 				systemip.sin_family = AF_INET;
 				systemip.sin_addr.s_addr = inet_addr(buff);
 
-				if(connect(rsfd, (struct sockaddr*)&servip, sizeof(servip)) < 0){
+				if(connect(rsfd, (struct sockaddr*)&systemip, sizeof(systemip)) < 0){
 					perror("Raw connect error!"); exit(0);
 				}
 
