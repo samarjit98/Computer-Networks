@@ -69,8 +69,9 @@ int main(int argc, char* argv[]){
 		if(bind(tcpfd, (struct sockaddr*)&tcpip, tcpiplen) < 0){
 			perror("Bind error!"); exit(0);
 		}
-		listen(tcpfd, LISTENQ);
+		//listen(tcpfd, LISTENQ);
 
+		/*
 		while(1){
 			raddrlen = sizeof(raddr);
 			int nsfd = accept(tcpfd, (struct sockaddr*)&raddr, &raddrlen);
@@ -89,6 +90,17 @@ int main(int argc, char* argv[]){
 					close(nsfd);
 				}
 			}
+		}
+		*/
+		while(1){
+			raddrlen = sizeof(raddr);
+			msglen = recvfrom(tcpfd, msg, 2048, 0, (struct sockaddr*)&raddr, &raddrlen);
+			if(msglen==-1)continue;
+			sleep(1);
+			msg[2048] = 0;
+			printf("TCP Socket:\n");
+			printf("TCP: received length: %d, from: %s:%d\n", msglen, inet_ntoa(raddr.sin_addr), ntohs(raddr.sin_port));
+			printf("TCP: payload: %s\n\n", msg);
 		}
 		close(tcpfd);
 	}

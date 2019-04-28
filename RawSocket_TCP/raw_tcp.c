@@ -104,7 +104,7 @@ int main (void)
 	iph->daddr = sin.sin_addr.s_addr;
 	
 	//Ip checksum
-	iph->check = csum ((unsigned short *) datagram, iph->tot_len);
+	//iph->check = csum ((unsigned short *) datagram, iph->tot_len);
 	
 	//TCP Header
 	tcph->source = htons (1234);
@@ -119,10 +119,11 @@ int main (void)
 	tcph->ack=0;
 	tcph->urg=0;
 	tcph->window = htons (5840);	/* maximum allowed window size */
-	tcph->check = 0;	//leave checksum 0 now, filled later by pseudo header
+	//tcph->check = 0;	//leave checksum 0 now, filled later by pseudo header
 	tcph->urg_ptr = 0;
 	
 	//Now the TCP checksum
+	/*
 	psh.source_address = inet_addr( source_ip );
 	psh.dest_address = sin.sin_addr.s_addr;
 	psh.placeholder = 0;
@@ -136,6 +137,7 @@ int main (void)
 	memcpy(pseudogram + sizeof(struct pseudo_header) , tcph , sizeof(struct tcphdr) + strlen(data));
 	
 	tcph->check = csum( (unsigned short*) pseudogram , psize);
+	*/
 	
 	//IP_HDRINCL to tell the kernel that headers are included in the packet
 	int one = 1;
@@ -146,6 +148,7 @@ int main (void)
 		perror("Error setting IP_HDRINCL");
 		exit(0);
 	}
+	
 	
 	//loop if you want to flood :)
 	while (1)
