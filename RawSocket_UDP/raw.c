@@ -83,3 +83,118 @@ int main(int argc, char* argv[]){
 	}
 	return 0;
 }
+
+/*
+
+➜  RawSocket_UDP git:(master) ✗ sudo ./raw 7000     
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+Raw socket:
+hl: 5, version: 4, ttl: 255, protocol: 17
+src: 192.168.1.2
+dest: 127.0.0.1
+src port: 6666, dest port: 7000
+UDP raw socket: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+UDP Socket:
+UDP: received length: 26, from: 192.168.1.2:6666
+UDP: payload: ABCDEFGHIJKLMNOPQRSTUVWXYZ>
+
+*/

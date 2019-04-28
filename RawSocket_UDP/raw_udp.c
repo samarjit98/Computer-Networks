@@ -127,7 +127,7 @@ int main (int argc, char* argv[])
 	udph->check = csum( (unsigned short*) pseudogram , psize);
 	*/
 	//loop if you want to flood :)
-	while (1)
+	for(int i=0; i<10; i++)
 	{
 		//Send the packet
 		if (sendto (s, datagram, iph->tot_len ,	0, (struct sockaddr *) &sin, sizeof (sin))  < 0)
