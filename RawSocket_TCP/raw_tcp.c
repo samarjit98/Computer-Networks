@@ -1,3 +1,5 @@
+// This is a type of SYN Flood DOS attack 
+
 /*
 	Raw TCP packets
 	Silver Moon (m00n.silv3r@gmail.com)
