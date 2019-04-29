@@ -11,6 +11,10 @@
 #include <netinet/ip.h>	//Provides declarations for ip header
 */
 #include "networks.h"
+#include <pcap.h>
+#include <net/if.h>
+#include <net/ethernet.h>
+#include <netinet/if_ether.h>
 /* 
 	96 bit (12 bytes) pseudo header needed for udp header checksum calculation 
 */
@@ -69,16 +73,34 @@ int main (int argc, char* argv[])
 	memset (datagram, 0, 4096);
 	
 	//IP header
-	struct iphdr *iph = (struct iphdr *) datagram;
+	struct ether_header *header = (struct ether_header*)datagram;
+	struct ether_header tmp_hdr;
+    tmp_hdr.ether_type=htons(ETHERTYPE_IP);
+    //memset(tmp_hdr.ether_dhost, 0xFF, sizeof(tmp_hdr.ether_dhost));
+    tmp_hdr.ether_dhost[0] = 0xec;
+    tmp_hdr.ether_dhost[1] = 0x8e;
+    tmp_hdr.ether_dhost[2] = 0xb5;
+    tmp_hdr.ether_dhost[3] = 0x54;
+    tmp_hdr.ether_dhost[4] = 0xda;
+    tmp_hdr.ether_dhost[5] = 0xdb;
+    tmp_hdr.ether_shost[0] = 0xec;
+    tmp_hdr.ether_shost[1] = 0x8e;
+    tmp_hdr.ether_shost[2] = 0xb5;
+    tmp_hdr.ether_shost[3] = 0x54;
+    tmp_hdr.ether_shost[4] = 0xda;
+    tmp_hdr.ether_shost[5] = 0xdb;
+    memcpy(header, &tmp_hdr, sizeof(struct ether_header));
+
+	struct iphdr *iph = (struct iphdr *) (datagram + sizeof(struct ether_header));
 	
 	//UDP header
-	struct udphdr *udph = (struct udphdr *) (datagram + sizeof (struct ip));
+	struct udphdr *udph = (struct udphdr *) (datagram + sizeof(struct ether_header) + sizeof (struct iphdr));
 	
 	struct sockaddr_in sin;
 	struct pseudo_header psh;
 	
 	//Data part
-	data = datagram + sizeof(struct iphdr) + sizeof(struct udphdr);
+	data = datagram + sizeof(struct ether_header) + sizeof(struct iphdr) + sizeof(struct udphdr);
 	strcpy(data , "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	
 	//some address resolution
@@ -112,7 +134,7 @@ int main (int argc, char* argv[])
 	
 	//Now the UDP checksum using the pseudo header
 	
-	psh.source_address = inet_addr( source_ip );
+	psh.source_address = inet_addr(source_ip);
 	psh.dest_address = sin.sin_addr.s_addr;
 	psh.placeholder = 0;
 	psh.protocol = IPPROTO_UDP;
@@ -127,19 +149,27 @@ int main (int argc, char* argv[])
 	udph->check = csum( (unsigned short*) pseudogram , psize);
 	
 	//loop if you want to flood :)
-	for(int i=0; i<10; i++)
-	{
-		//Send the packet
-		if (sendto (s, datagram, iph->tot_len ,	0, (struct sockaddr *) &sin, sizeof (sin))  < 0)
-		{
-			perror("sendto failed");
-		}
-		//Data send successfully
-		else
-		{
-			printf ("Packet Send. Length : %d \n" , iph->tot_len);
-		}
+	char pcap_errbuf[PCAP_ERRBUF_SIZE];
+    pcap_errbuf[0]='\0';
+    pcap_t* pcap = pcap_open_live("eno1", 96, 0, 0, pcap_errbuf);
+    if (pcap_errbuf[0]!='\0') {
+        fprintf(stderr,"%s\n",pcap_errbuf);
+    }
+    if (!pcap) {
+        exit(1);
+    }
+
+    // Write the Ethernet frame to the interface.
+    for(int i=0; i<10; i++){
+	    if (pcap_sendpacket(pcap, datagram, sizeof(struct ether_header) + sizeof (struct iphdr) + sizeof (struct udphdr) + strlen(data))==-1) {
+	        pcap_perror(pcap, 0);
+	        pcap_close(pcap);
+	        exit(1);
+	    }
+	    else printf("Sent\n");
 	}
-	
-	return 0;
+
+    // Close the PCAP descriptor.
+    pcap_close(pcap);
+    return 0;
 }

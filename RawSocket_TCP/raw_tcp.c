@@ -47,8 +47,8 @@ unsigned short csum(unsigned short *ptr,int nbytes)
 		sum+=oddbyte;
 	}
 
-	sum = (sum>16)+(sum & 0xffff);
-	sum = sum + (sum>16);
+	sum = (sum>>16)+(sum & 0xffff);
+	sum = sum + (sum>>16);
 	answer=(short)~sum;
 	
 	return(answer);
@@ -104,7 +104,7 @@ int main (void)
 	iph->daddr = sin.sin_addr.s_addr;
 	
 	//Ip checksum
-	//iph->check = csum ((unsigned short *) datagram, iph->tot_len);
+	iph->check = csum ((unsigned short *) datagram, iph->tot_len);
 	
 	//TCP Header
 	tcph->source = htons (1234);
@@ -123,7 +123,7 @@ int main (void)
 	tcph->urg_ptr = 0;
 	
 	//Now the TCP checksum
-	/*
+	
 	psh.source_address = inet_addr( source_ip );
 	psh.dest_address = sin.sin_addr.s_addr;
 	psh.placeholder = 0;
@@ -137,7 +137,7 @@ int main (void)
 	memcpy(pseudogram + sizeof(struct pseudo_header) , tcph , sizeof(struct tcphdr) + strlen(data));
 	
 	tcph->check = csum( (unsigned short*) pseudogram , psize);
-	*/
+
 	
 	//IP_HDRINCL to tell the kernel that headers are included in the packet
 	int one = 1;
@@ -151,7 +151,7 @@ int main (void)
 	
 	
 	//loop if you want to flood :)
-	while (1)
+	for(int i=0; i<10; i++)
 	{
 		//Send the packet
 		if (sendto (s, datagram, iph->tot_len ,	0, (struct sockaddr *) &sin, sizeof (sin)) < 0)
