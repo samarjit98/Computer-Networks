@@ -73,34 +73,34 @@ int main (int argc, char* argv[])
 	memset (datagram, 0, 4096);
 	
 	//IP header
-	struct ether_header *header = (struct ether_header*)datagram;
-	struct ether_header tmp_hdr;
-    tmp_hdr.ether_type=htons(ETHERTYPE_IP);
-    //memset(tmp_hdr.ether_dhost, 0xFF, sizeof(tmp_hdr.ether_dhost));
-    tmp_hdr.ether_dhost[0] = 0xec;
-    tmp_hdr.ether_dhost[1] = 0x8e;
-    tmp_hdr.ether_dhost[2] = 0xb5;
-    tmp_hdr.ether_dhost[3] = 0x54;
-    tmp_hdr.ether_dhost[4] = 0xda;
-    tmp_hdr.ether_dhost[5] = 0xdb;
-    tmp_hdr.ether_shost[0] = 0xec;
-    tmp_hdr.ether_shost[1] = 0x8e;
-    tmp_hdr.ether_shost[2] = 0xb5;
-    tmp_hdr.ether_shost[3] = 0x54;
-    tmp_hdr.ether_shost[4] = 0xda;
-    tmp_hdr.ether_shost[5] = 0xdb;
-    memcpy(header, &tmp_hdr, sizeof(struct ether_header));
+	struct ethhdr *header = (struct ethhdr*)datagram;
+	struct ethhdr tmp_hdr;
+    tmp_hdr.h_proto=htons(ETHERTYPE_IP);
+    //memset(tmp_hdr.h_dest, 0xFF, sizeof(tmp_hdr.h_dest));
+    tmp_hdr.h_dest[0] = 0xec;
+    tmp_hdr.h_dest[1] = 0x8e;
+    tmp_hdr.h_dest[2] = 0xb5;
+    tmp_hdr.h_dest[3] = 0x54;
+    tmp_hdr.h_dest[4] = 0xda;
+    tmp_hdr.h_dest[5] = 0xdb;
+    tmp_hdr.h_source[0] = 0xec;
+    tmp_hdr.h_source[1] = 0x8e;
+    tmp_hdr.h_source[2] = 0xb5;
+    tmp_hdr.h_source[3] = 0x54;
+    tmp_hdr.h_source[4] = 0xda;
+    tmp_hdr.h_source[5] = 0xdb;
+    memcpy(header, &tmp_hdr, sizeof(struct ethhdr));
 
-	struct iphdr *iph = (struct iphdr *) (datagram + sizeof(struct ether_header));
+	struct iphdr *iph = (struct iphdr *) (datagram + sizeof(struct ethhdr));
 	
 	//UDP header
-	struct udphdr *udph = (struct udphdr *) (datagram + sizeof(struct ether_header) + sizeof (struct iphdr));
+	struct udphdr *udph = (struct udphdr *) (datagram + sizeof(struct ethhdr) + sizeof (struct iphdr));
 	
 	struct sockaddr_in sin;
 	struct pseudo_header psh;
 	
 	//Data part
-	data = datagram + sizeof(struct ether_header) + sizeof(struct iphdr) + sizeof(struct udphdr);
+	data = datagram + sizeof(struct ethhdr) + sizeof(struct iphdr) + sizeof(struct udphdr);
 	strcpy(data , "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	
 	//some address resolution
@@ -151,7 +151,7 @@ int main (int argc, char* argv[])
 	//loop if you want to flood :)
 	char pcap_errbuf[PCAP_ERRBUF_SIZE];
     pcap_errbuf[0]='\0';
-    pcap_t* pcap = pcap_open_live("eno1", 96, 0, 0, pcap_errbuf);
+    pcap_t* pcap = pcap_open_live("eno1", 65535, 0, 0, pcap_errbuf);
     if (pcap_errbuf[0]!='\0') {
         fprintf(stderr,"%s\n",pcap_errbuf);
     }
@@ -161,7 +161,7 @@ int main (int argc, char* argv[])
 
     // Write the Ethernet frame to the interface.
     for(int i=0; i<10; i++){
-	    if (pcap_sendpacket(pcap, datagram, sizeof(struct ether_header) + sizeof (struct iphdr) + sizeof (struct udphdr) + strlen(data))==-1) {
+	    if (pcap_sendpacket(pcap, datagram, sizeof(struct ethhdr) + sizeof (struct iphdr) + sizeof (struct udphdr) + strlen(data))==-1) {
 	        pcap_perror(pcap, 0);
 	        pcap_close(pcap);
 	        exit(1);

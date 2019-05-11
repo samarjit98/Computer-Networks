@@ -1,0 +1,856 @@
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : 3C-52-82-B9-68-D6 
+   |-Protocol            : 1544 
+
+IP Header
+   |-IP Version        : 0
+   |-IP Header Length  : 0 DWORDS or 0 Bytes
+   |-Type Of Service   : 1
+   |-IP Total Length   : 2048  Bytes(Size of Packet)
+   |-Identification    : 1540
+   |-TTL      : 60
+   |-Protocol : 82
+   |-Checksum : 33465
+   |-Source IP        : 104.214.192.168
+   |-Destination IP   : 105.2.0.0
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : 3C-52-82-B9-68-D6 
+   |-Protocol            : 1544 
+
+IP Header
+   |-IP Version        : 0
+   |-IP Header Length  : 0 DWORDS or 0 Bytes
+   |-Type Of Service   : 1
+   |-IP Total Length   : 2048  Bytes(Size of Packet)
+   |-Identification    : 1540
+   |-TTL      : 60
+   |-Protocol : 82
+   |-Checksum : 33465
+   |-Source IP        : 104.214.192.168
+   |-Destination IP   : 105.2.0.0
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : 3C-52-82-B9-68-D6 
+   |-Protocol            : 1544 
+
+IP Header
+   |-IP Version        : 0
+   |-IP Header Length  : 0 DWORDS or 0 Bytes
+   |-Type Of Service   : 1
+   |-IP Total Length   : 2048  Bytes(Size of Packet)
+   |-Identification    : 1540
+   |-TTL      : 60
+   |-Protocol : 82
+   |-Checksum : 33465
+   |-Source IP        : 104.214.192.168
+   |-Destination IP   : 105.2.0.0
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48320
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10643
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+Ethernet Header
+   |-Destination Address : EC-8E-B5-54-DA-DB 
+   |-Source Address      : B8-88-E3-56-1B-9F 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 21527
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 53820
+   |-Source IP        : 192.168.105.240
+   |-Destination IP   : 192.168.105.20
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : 3C-52-82-B9-68-D6 
+   |-Protocol            : 1544 
+
+IP Header
+   |-IP Version        : 0
+   |-IP Header Length  : 0 DWORDS or 0 Bytes
+   |-Type Of Service   : 1
+   |-IP Total Length   : 2048  Bytes(Size of Packet)
+   |-Identification    : 1540
+   |-TTL      : 60
+   |-Protocol : 82
+   |-Checksum : 33465
+   |-Source IP        : 104.214.192.168
+   |-Destination IP   : 105.2.0.0
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48553
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10410
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+Ethernet Header
+   |-Destination Address : EC-8E-B5-54-DA-DB 
+   |-Source Address      : B8-88-E3-56-1B-9F 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 21753
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 53594
+   |-Source IP        : 192.168.105.240
+   |-Destination IP   : 192.168.105.20
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : 3C-52-82-B9-68-D6 
+   |-Protocol            : 1544 
+
+IP Header
+   |-IP Version        : 0
+   |-IP Header Length  : 0 DWORDS or 0 Bytes
+   |-Type Of Service   : 1
+   |-IP Total Length   : 2048  Bytes(Size of Packet)
+   |-Identification    : 1540
+   |-TTL      : 60
+   |-Protocol : 82
+   |-Checksum : 33465
+   |-Source IP        : 104.214.192.168
+   |-Destination IP   : 105.2.0.0
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48639
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10324
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+
+***************************************
+
+REROUTING FROM NOW
+
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48707
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10256
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48707
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10256
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48715
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10248
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48715
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10248
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48951
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10012
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 48951
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 10012
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49040
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9923
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49040
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9923
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49204
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9759
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49204
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9759
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49212
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9751
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49212
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9751
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49358
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9605
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49358
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9605
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49489
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9474
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49489
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9474
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49642
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9321
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49642
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9321
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49755
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9208
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49755
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9208
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49786
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9177
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49786
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9177
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49800
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9163
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49800
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9163
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49890
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9073
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 49890
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 9073
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 50032
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 8931
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 50032
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 8931
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 50127
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 8836
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 50127
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 8836
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 50364
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 8599
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 50364
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 8599
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
+
+Lets Gamble now:
+
+ORIGINAL:
+
+Ethernet Header
+   |-Destination Address : B8-88-E3-56-1B-9F 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 50502
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 8461
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.240
+
+GAMBLED:
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : EC-8E-B5-54-DA-DB 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 84  Bytes(Size of Packet)
+   |-Identification    : 50502
+   |-TTL      : 64
+   |-Protocol : 1
+   |-Checksum : 8461
+   |-Source IP        : 192.168.105.20
+   |-Destination IP   : 192.168.105.2
